@@ -43,8 +43,21 @@ contract DogContract{
 
 	// getter function
 	// returns an item from the array based on it's index
-	function getDog(uint _id) returns(string){
+	function getDog() returns(string){
+
+		// get the address of the person calling the function
+		address owner = msg.sender;
+
+		// get the dog that belongs to the msg.sender we can get it
+		// from a hash since it will be the same as the previous hash
+		// when the dog was added
+		uint id = ownerOfDog[owner];
+
 		// you can only return a single item
-		return dogs[_id].name;
+		// solidity arrays are 0 indexed so you have to subtract 
+		// an index since dogs.push() was not 0 indexed
+		return dogs[id-1].name;
+
+
 	}
 }
