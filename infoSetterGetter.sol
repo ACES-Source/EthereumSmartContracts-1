@@ -8,7 +8,7 @@ contract Info{
 	int age = 0;
 
 	// NAME FUNCTIONS
-	
+
 	// setter
 	// define the function and it's params
 	function setName(string _input){
@@ -18,7 +18,7 @@ contract Info{
 
 	// getter
 	function getName() view returns (string){
-		return _name;
+		return name;
 	}
 
 	// AGE FUNCTIONS
@@ -31,7 +31,7 @@ contract Info{
 
 	// getter
 	function getAge() view returns (int){
-		return _age;
+		return age;
 	}
 
 }
