@@ -12,6 +12,9 @@ contract DogContract{
 	// define an array	
 	Dog[] dogs;
 
+	// mapping to an ether address
+	mapping(address => uint) ownerOfDog;
+
 	// setter
 	// adds an item to the array
 	function addDog(string _dogName, uint _age){
@@ -21,6 +24,10 @@ contract DogContract{
 		// with 2 variables we can create a new Dog struct
 		// longhand version
 		//Dog newDog = {_dogName, _age};
+
+		// map the address to the Dog
+		// msg.sender is the address that called the contract
+		address owner = msg.sender
 
 		// put the newDog in the array/list
 		// short hand version
