@@ -32,7 +32,7 @@ contract DogContract{
 
 		// map the address to the Dog
 		// msg.sender is the address that called the contract
-		address owner = msg.sender
+		address owner = msg.sender;
 
 		// we need the ID of the dog
 		// dogs.push returns the id
