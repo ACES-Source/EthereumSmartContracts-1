@@ -13,6 +13,7 @@ contract DogContract{
 	Dog[] dogs;
 
 	// mapping to an ether address
+	// => point 
 	mapping(address => uint) ownerOfDog;
 
 	// setter
@@ -25,13 +26,19 @@ contract DogContract{
 		// longhand version
 		//Dog newDog = {_dogName, _age};
 
+		// put the newDog in the array/list
+		// short hand version
+		//dogs.push(Dog(_dogName, _age));
+
 		// map the address to the Dog
 		// msg.sender is the address that called the contract
 		address owner = msg.sender
 
-		// put the newDog in the array/list
-		// short hand version
-		dogs.push(Dog(_dogName, _age));
+		// we need the ID of the dog
+		// dogs.push returns the id
+		uint id = dogs.push(Dog(_dogName, _age));
+
+		ownerOfDog[owner] = id;
 	}
 
 	// getter function
