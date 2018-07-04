@@ -7,10 +7,10 @@ contract DogContract{
 	struct Dog{
 		string name;
 		uint age;
-	};
+	}
 
 	// define an array	
-	string[] dogs = ["Shingle", "Yoyo"];
+	Dog[] dogs;
 
 	// setter
 	// adds an item to the array
