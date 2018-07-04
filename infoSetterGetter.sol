@@ -5,15 +5,15 @@ contract Info{
 	
 	// define and instantiate vars
 	string name = "0";
-	int age = 0;
+	uint age = 0;
 
 	// NAME FUNCTIONS
 
 	// setter
 	// define the function and it's params
-	function setName(string _input){
+	function setName(string _inputName){
 		// set the input param to name;
-		name = _input;
+		name = _inputName;
 	}
 
 	// getter
@@ -24,13 +24,13 @@ contract Info{
 	// AGE FUNCTIONS
 
 	// setter
-	function setAge(int _input){
+	function setAge(uint _inputAge){
 		// set the input param to name;
-		age = _input;
+		age = _inputAge;
 	}
 
 	// getter
-	function getAge() view returns (int){
+	function getAge() view returns (uint){
 		return age;
 	}
 
