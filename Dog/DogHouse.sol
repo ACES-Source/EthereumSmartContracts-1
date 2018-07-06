@@ -11,6 +11,10 @@ contract DogHouse is DogContract {
 	function transferDog(address _newOwner){
 	    // the msg.sender is the original owner 
 		address owner = msg.sender;
+
+		// make sure the _newOwner is not the same as the current ownerToDog
+		require(owner != _newOwner)
+
 		// dogID is obtained from the ownerToDog mapping
 		uint dogID = ownerOfDog[owner];
 		// delete old mapping
@@ -19,5 +23,5 @@ contract DogHouse is DogContract {
 		ownerOfDog[_newOwner] = dogID;
 	}
 
-	
+
 }
