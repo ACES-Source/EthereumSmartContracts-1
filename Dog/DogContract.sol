@@ -31,8 +31,6 @@ contract DogContract {
         uint id = dogs.push(Dog(_name, _age));
         // map the id as the value for the owners key
         ownerOfDog[owner] = id;
-        // 
-        addedDog(owner, _name, id);
     }
 
     // return the dog owned by the contract caller
