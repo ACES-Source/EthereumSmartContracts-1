@@ -12,15 +12,21 @@ contract DogHouse is DogContract {
 	    // the msg.sender is the original owner 
 		address owner = msg.sender;
 
-		// make sure the _newOwner is not the same as the current ownerToDog
-		require(owner != _newOwner)
+		// make sure the _newOwner is not the same as the current ownerOfDog
+		require(owner != _newOwner);
 
-		// dogID is obtained from the ownerToDog mapping
+		// dogID is obtained from the ownerOfDog mapping
 		uint dogID = ownerOfDog[owner];
+		
 		// delete old mapping
 		delete(ownerOfDog[owner]);
+
 		// set new mapping of the dog's ID to the new owner address
 		ownerOfDog[_newOwner] = dogID;
+
+		// make sure the transfer was successful - owner should no longer be
+		// found in the ownerOfDog mapping
+		assert(ownerOfDog[owner] == 0);
 	}
 
 
