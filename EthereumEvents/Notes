@@ -10,3 +10,38 @@ string and bytes are stored as hashes rather than the actual string or byte valu
 
 if you use the annonymous specifier then you won't be able to filter by name only by hash
 
+1.     How are events declared?
+
+Inside an ethereum smart contract  have the following
+
+event EventName(
+    // up to 3 items can be added to an event
+    // these will be logged to the blockchain
+    /// and can be monitored by a js API
+    dataType indexed _variable,
+);
+
+2.     How can we emit events?
+Inside an ethereum smart contract's functions call the event function. This will log the desired events to the blockchain.
+
+contact Contract {
+
+	// create an event here and define what to store in it
+	event Deposit(
+		address indexed _from,
+		byte32 indexed _id,
+		uint _value
+	);
+
+	function deposit(bytes32, _id){
+		// do something
+		// call the event to log and pass the data to log
+		Deposit(param1, param2, param3);
+
+	}
+}
+
+
+
+3.     How and where do we listen for events?
+We can use a JS API to monitor the blockchain for certain events within a smart contract

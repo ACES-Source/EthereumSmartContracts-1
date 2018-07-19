@@ -1,7 +1,7 @@
 # EthereumSmartContracts
-collection of Ethereum smart contracts
+Collection of Ethereum smart contracts and Useful resources
 
-Ethereum Solidity Documentation
+# Ethereum Solidity Documentation
 
 https://solidity.readthedocs.io/en/v0.4.0/index.html
 
