@@ -1,1 +1,12 @@
-Notes
+Ethereum Events
+
+Events allow the use of EVM to log certain events which can be monitored by javascript event listeners on a front-end application
+
+Block headers must be supplied because the contract can only see up to 256 blocks back
+
+indexed(param1, param2, param3): up to 3 parameters can be passed to indexed for minitoring / logging
+
+string and bytes are stored as hashes rather than the actual string or byte value
+
+if you use the annonymous specifier then you won't be able to filter by name only by hash
+
