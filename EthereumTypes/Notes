@@ -1,0 +1,96 @@
+Ethereum Types
+
+# Operators
+
+&& / || / ! / == / !=
+
+# Data types
+
+bool / int or uint (256 bits) / uint8 (8bits) up to uint256 (256 bits)
+
+# Comparison
+
+> / >= / < / <= / != / == / bool
+
+# Bit operators
+
+& / | / ^ (bitwise exclusive or) / ~ (bitwise negation)
+
+# Arithmetic
+
++ - / % * **
+
+# Address
+
+an ethereum addres always starts with 0x
+
+# Members of address
+
+balance - check balance
+send - send wei to other address or contract
+
+Example
+address x = 0x123;
+address myAddress = this;
+if (x.balance < 10 && myAddress.balance >= 10) x.send(10);
+
+call - returns a bool if success or failure
+
+delegatecall - make a call to another contract
+
+All three functions call, delegatecall and callcode are very low-level functions and should only be used as a last resort as they break the type-safety of Solidity.
+
+all contracts inherit members of address so you can use this.balance to check the balance of the smart contract
+
+# Arrays
+
+store bytes or strings
+
+# Strings
+
+double or single quotes you choose
+
+# Hex literals
+
+enclosed in double or single quotes
+(hex"001122FF")
+
+# Enums
+
+enum ActionChoices { GoLeft, GoRight, GoStraight, SitStill }
+
+# Data location
+
+used for Arrays or other complex data types - default is storage 
+
+storage or memory
+
+append the desired one to the data type
+
+memoryArray / storageArray
+
+# Array literals / inline Arrays
+
+Array literals are arrays that are written as an expression and are not assigned to a variable right away.
+
+# Array members
+
+length / push(end or array)
+
+self explanatory
+
+# Structs
+
+same as C++
+
+struct MyStruct {
+	data_type var;
+	data_type var2;
+};
+
+# Mappings
+
+similar to a dictionary in python
+but you're mapping to specific data types instead
+
+mapping mapping_key => mapping_value

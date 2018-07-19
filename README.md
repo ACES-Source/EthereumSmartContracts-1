@@ -1,9 +1,17 @@
 # EthereumSmartContracts
 Collection of Ethereum smart contracts and Useful resources
 
+# Ethereum IDE and Compiler
+
+https://ethereum.github.io/browser-solidity/#optimize=false&version=soljson-v0.4.19+commit.c4cbbb05.js
+
 # Ethereum Solidity Documentation
 
 https://solidity.readthedocs.io/en/v0.4.0/index.html
+
+# Ethereum types
+
+https://solidity.readthedocs.io/en/v0.4.0/types.html
 
 # Monitor Ethereum Blockchain Events with JS API
 
