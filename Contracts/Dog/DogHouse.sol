@@ -30,7 +30,7 @@ contract DogHouse is DogContract {
 	// then call the BankInterface in this file
 	// set a variable as BankContract
 	// assign it the interface from the address on the blockchain
-	BankInterface = BankContract;
+	BankInterface BankContract;
 
 	function initBank(address _bankAddress) onlyOwner {
 		BankContract = BankInterface(_bankAddress);
