@@ -40,8 +40,14 @@ https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/owne
 
 # Gas
 
+https://www.mycryptopedia.com/ethereum-virtual-machine-explained/
+
 Cost of storage and processing on the blockchain
+
 Paid in wei (smallest unit of ether)
+
 Set by the miners
+
 Prevents spamming
+
 Reduce gas cost by using less memory (uint8 rather than uint256)
