@@ -1,6 +1,8 @@
 pragma solidity ^0.4.0;
 
-contract DogContract {
+import './Ownable.sol';
+
+contract DogContract is Ownable {
 
     // create the Dog 
     struct Dog {

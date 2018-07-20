@@ -30,8 +30,11 @@ contract DogHouse is DogContract {
 	// then call the BankInterface in this file
 	// set a variable as BankContract
 	// assign it the interface from the address on the blockchain
-	address externalAddress = 0xbde95422681e4c3984635af2f2f35f8c44a4ddc9;
-	BankInterface BankContract = BankInterface(externalAddress);
+	BankInterface = BankContract;
+
+	function initBank(address _bankAddress) onlyOwner {
+		BankContract = BankInterface(_bank);
+	}
 
 
     // transfer requires the address of the new owner

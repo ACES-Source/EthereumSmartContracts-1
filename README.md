@@ -33,3 +33,7 @@ https://github.com/ethchange/smart-exchange/blob/master/lib/exchange_transaction
 http://solidity.readthedocs.io/en/develop/contracts.html#function-modifiers
 
 https://medium.com/@kidinamoto/payable-keyword-in-solidity-375b5c9044df
+
+# Ownable Contracts
+
+https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol
