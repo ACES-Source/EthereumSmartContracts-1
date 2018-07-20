@@ -33,7 +33,7 @@ contract DogHouse is DogContract {
 	BankInterface = BankContract;
 
 	function initBank(address _bankAddress) onlyOwner {
-		BankContract = BankInterface(_bank);
+		BankContract = BankInterface(_bankAddress);
 	}
 
 
