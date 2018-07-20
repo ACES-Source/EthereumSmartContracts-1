@@ -55,3 +55,7 @@ Reduce gas cost by using less memory (uint8 rather than uint256)
 # Integer Over / Under flow prevention
 
 https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol
+
+# Security Pitfalls
+
+https://solidity.readthedocs.io/en/v0.4.0/security-considerations.html#pitfalls
