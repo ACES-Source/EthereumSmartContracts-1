@@ -8,28 +8,24 @@ contract DogContract {
         uint age;
     }
 
-    // create an array of dogs
+    // create an array of Dogs called dogs
     Dog[] dogs;
 
     // maping array
     // maps address types to uints
    	// stores key/value pairs in ownerOfDog
+    // this way we can see who owns the dog
     mapping(address => uint) ownerOfDog;
 
     // add a dog to the contract
     // requires name and age
-    // visibility types
-    // internal / external / public / private
-    // internal: only the contract and it's inheritors can call this function
-    // external: only external contracts can call this function
-    // public: anyone can call this function
-    // private: only this contract can call this function
     function addDog(string _name, uint _age) internal {
         // get the address of whoever initiated the contract
         address owner = msg.sender;
         // get the id of the dog or the index on the dogs array
+        // the ID is returned when we push the Dog into the dogs array
         uint id = dogs.push(Dog(_name, _age));
-        // map the id as the value for the owners key
+        // map the dogs id to the owner's ether address
         ownerOfDog[owner] = id;
     }
 

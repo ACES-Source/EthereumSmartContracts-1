@@ -1,0 +1,23 @@
+Visibility Types
+
+
+# internal / external / public / private
+
+internal: only the contract and it's inheritors can call this function
+ 
+external: only external contracts can call this function
+ 
+public: anyone can call this function
+ 
+private: only this contract can call this function
+
+
+# Error handling
+
+require: make sure the condition is met before executing the rest of the function
+
+*this will return the remaining gas to the contract caller*
+
+assert: this is similar to require but should only be used for emergencies
+
+* this will burn the remaining gas*

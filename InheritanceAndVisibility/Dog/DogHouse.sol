@@ -13,6 +13,7 @@ contract DogHouse is DogContract {
 		address owner = msg.sender;
 
 		// make sure the _newOwner is not the same as the current ownerOfDog
+		// sending the dog to ourselves would be pointless
 		require(owner != _newOwner);
 
 		// dogID is obtained from the ownerOfDog mapping
@@ -26,6 +27,7 @@ contract DogHouse is DogContract {
 
 		// make sure the transfer was successful - owner should no longer be
 		// found in the ownerOfDog mapping
+		// default value after deleting the mapping is 0
 		assert(ownerOfDog[owner] == 0);
 	}
 

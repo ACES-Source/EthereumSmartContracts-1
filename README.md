@@ -9,7 +9,7 @@ https://ethereum.github.io/browser-solidity/#optimize=false&version=soljson-v0.4
 
 https://solidity.readthedocs.io/en/v0.4.0/index.html
 
-# Ethereum types
+# Ethereum Types
 
 https://solidity.readthedocs.io/en/v0.4.0/types.html
 
