@@ -7,8 +7,20 @@ import './DogContract.sol';
 // is is the same as : in c++
 contract DogHouse is DogContract {
 
+	// function modifier
+	// we can check if the call had enough gas to execute
+	// this will add value to the contract
+	// otherwise throw an error
+	modifier costs(uint value){
+		require(msg.value >= value);
+		_; // this means continue to execute the function
+	}
+
+
     // transfer requires the address of the new owner
-	function transferDog(address _newOwner){
+    // make sure the call had 100 wei before executing
+	function transferDog(address _newOwner) payable costs(100) {
+
 	    // the msg.sender is the original owner 
 		address owner = msg.sender;
 

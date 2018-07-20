@@ -27,3 +27,9 @@ https://github.com/ethchange/smart-exchange/blob/master/lib/contracts/SmartExcha
 
 Js API
 https://github.com/ethchange/smart-exchange/blob/master/lib/exchange_transactions.js
+
+# Function Modifiers such as Payable keyword
+
+http://solidity.readthedocs.io/en/develop/contracts.html#function-modifiers
+
+https://medium.com/@kidinamoto/payable-keyword-in-solidity-375b5c9044df

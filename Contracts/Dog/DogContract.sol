@@ -2,7 +2,7 @@ pragma solidity ^0.4.0;
 
 contract DogContract {
 
-	// create the Dog 
+    // create the Dog 
     struct Dog {
         string name;
         uint age;
@@ -13,7 +13,7 @@ contract DogContract {
 
     // maping array
     // maps address types to uints
-   	// stores key/value pairs in ownerOfDog
+    // stores key/value pairs in ownerOfDog
     // this way we can see who owns the dog
     mapping(address => uint) ownerOfDog;
 
@@ -38,7 +38,7 @@ contract DogContract {
 
     // return the dog owned by the contract caller
     function getDog() returns (string) {
-    	// get the owner
+        // get the owner
         address owner = msg.sender;
         // ge the id of the dog from the mapping
         uint id = ownerOfDog[owner];
