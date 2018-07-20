@@ -37,3 +37,11 @@ https://medium.com/@kidinamoto/payable-keyword-in-solidity-375b5c9044df
 # Ownable Contracts
 
 https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol
+
+# Gas
+
+Cost of storage and processing on the blockchain
+Paid in wei (smallest unit of ether)
+Set by the miners
+Prevents spamming
+Reduce gas cost by using less memory (uint8 rather than uint256)
