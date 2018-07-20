@@ -31,5 +31,10 @@ contract DogHouse is DogContract {
 		assert(ownerOfDog[owner] == 0);
 	}
 
+	// this will allow us to add a Dog from this contract
+	// since the addDog function is internal
+	function addDogHouseDog(string _name, uint _age){
+		addDog(_name, _age);
+	}
 
 }

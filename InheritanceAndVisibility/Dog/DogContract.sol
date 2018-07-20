@@ -17,6 +17,10 @@ contract DogContract {
     // this way we can see who owns the dog
     mapping(address => uint) ownerOfDog;
 
+
+    // event to log when a dog is added
+    event addedDog(address owner, string name, uint dogID);
+
     // add a dog to the contract
     // requires name and age
     function addDog(string _name, uint _age) internal {
@@ -27,6 +31,9 @@ contract DogContract {
         uint id = dogs.push(Dog(_name, _age));
         // map the dogs id to the owner's ether address
         ownerOfDog[owner] = id;
+
+        // log this event
+        addedDog(owner, _name, id);
     }
 
     // return the dog owned by the contract caller
