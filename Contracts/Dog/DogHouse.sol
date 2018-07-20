@@ -61,7 +61,7 @@ contract DogHouse is DogContract {
 
 
 		// deposit the money in the bank
-		BankContract.deposit.value(msg.value)():
+		BankContract.deposit.value(msg.value)();
 	}
 
 	// check how much money you have in the bank
