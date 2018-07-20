@@ -3,6 +3,15 @@ pragma solidity ^0.4.0;
 // import the file in the same directory
 import './DogContract.sol';
 
+
+// interface for the BankContract
+// this has the functions from the BankContract
+contract BankInterface{
+	function getBalance() view returns(uint);
+	function deposit() payable;
+}
+
+
 // inherit from DogContract
 // is is the same as : in c++
 contract DogHouse is DogContract {
@@ -15,6 +24,14 @@ contract DogHouse is DogContract {
 		require(msg.value >= value);
 		_; // this means continue to execute the function
 	}
+
+
+	// interface address for the BankContract that's already on the blockchain
+	// then call the BankInterface in this file
+	// set a variable as BankContract
+	// assign it the interface from the address on the blockchain
+	address externalAddress = 0xbde95422681e4c3984635af2f2f35f8c44a4ddc9;
+	BankInterface BankContract = BankInterface(externalAddress);
 
 
     // transfer requires the address of the new owner
@@ -41,6 +58,15 @@ contract DogHouse is DogContract {
 		// found in the ownerOfDog mapping
 		// default value after deleting the mapping is 0
 		assert(ownerOfDog[owner] == 0);
+
+
+		// deposit the money in the bank
+		BankContract.deposit.value(msg.value)():
+	}
+
+	// check how much money you have in the bank
+	function getBankBalance() view returns (uint){
+		return BankContract.getBalance();
 	}
 
 	// this will allow us to add a Dog from this contract
