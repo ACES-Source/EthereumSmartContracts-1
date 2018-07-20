@@ -51,3 +51,7 @@ Set by the miners
 Prevents spamming
 
 Reduce gas cost by using less memory (uint8 rather than uint256)
+
+# Integer Over / Under flow prevention
+
+https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol
