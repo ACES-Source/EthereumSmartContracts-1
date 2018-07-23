@@ -12,9 +12,14 @@
         cb();
     }
 
-    function getMessage(cb) {
-        instance.message(function (error, result) {
-            cb(error, result);
+    function getBalance() {
+        instance.getBalance(function (error, result) {
+            if(error){
+                alert(error);
+            }
+            else {
+                // set value in HTML
+            }
         });
     }
 
@@ -29,4 +34,4 @@
             });
         });
     });
-})(Contracts['HelloWorld']);
+})(Contracts['CoinFlip']);
