@@ -22,7 +22,7 @@ contract CoinFlip {
     // if it's divisible by 2
     // the bet is determined by the eth value the user sends
     // if the user wins then return the bet value + 100% of the bet
-    function flip() payable public(){
+    function flip() payable public {
         uint time = block.timestamp;
         uint bet = msg.value;
 
