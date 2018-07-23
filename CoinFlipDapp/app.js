@@ -36,14 +36,14 @@
         */
         instance.flip.sendTransaction({from: "0xa48f2e0be8ab5a04a5eb1f86ead1923f03a207fd",
                                       gas: 100000,
-                                      value: val}){
+                                      value: val}, function(error, result){
             if(error){
                 alert(error);
             }
             else{
-                alert("SUCCESSFUL TRANSACTION")
+                alert("SUCCESSFUL TRANSACTION");
             }
-        }
+        });
     }
 
     // when the doc is loaded
@@ -56,8 +56,8 @@
         // when the button is clicked do a flip
         $('#submit').click(function(){
             flip();
-        });
-        
+        }); 
+
     });
     // this is out smart contract
 })(Contracts['CoinFlip']);
