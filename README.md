@@ -5,6 +5,10 @@ Collection of Ethereum smart contracts and Useful resources
 
 https://ethereum.github.io/browser-solidity/#optimize=false&version=soljson-v0.4.19+commit.c4cbbb05.js
 
+# Dapp development
+
+https://iot-academy.superblocks.com/
+
 # Ethereum Solidity Documentation
 
 https://solidity.readthedocs.io/en/v0.4.0/index.html
@@ -57,5 +61,7 @@ Reduce gas cost by using less memory (uint8 rather than uint256)
 https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol
 
 # Security Pitfalls
+
+Tip: CHECKS-EFFECTS-INTERACTION
 
 https://solidity.readthedocs.io/en/v0.4.0/security-considerations.html#pitfalls
