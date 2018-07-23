@@ -12,26 +12,26 @@
         cb();
     }
 
+    // get the balance from the smart contract
     function getBalance() {
         instance.getBalance(function (error, result) {
             if(error){
                 alert(error);
             }
             else {
-                // set value in HTML
+                // get value in HTML
+                // 
+                $('#balance').html(result.toString());
             }
         });
     }
 
+    // when the doc is loaded
     $(document).ready(function () {
         init(function () {
-            getMessage(function (error, result) {
-                if (error) {
-                    console.error("Could not get article:", error);
-                    return;
-                }
-                $('#message').append(result);
-            });
+            // get the balance from the contract
+            getBalance();
         });
     });
+    // this is out smart contract
 })(Contracts['CoinFlip']);
