@@ -26,6 +26,26 @@
         });
     }
 
+    function flip(){
+        // get the bet from the input box
+        let val = parseInt($('#bet').val());
+
+        /*
+        sentTransaction
+        Json - from, gas limit(wei), value(wei)
+        */
+        instance.flip.sendTransaction({from: "0xa48f2e0be8ab5a04a5eb1f86ead1923f03a207fd",
+                                      gas: 100000,
+                                      value: val}){
+            if(error){
+                alert(error);
+            }
+            else{
+                alert("SUCCESSFUL TRANSACTION")
+            }
+        }
+    }
+
     // when the doc is loaded
     $(document).ready(function () {
         init(function () {
