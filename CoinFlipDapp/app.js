@@ -52,6 +52,12 @@
             // get the balance from the contract
             getBalance();
         });
+
+        // when the button is clicked do a flip
+        $('#submit').click(function(){
+            flip();
+        });
+        
     });
     // this is out smart contract
 })(Contracts['CoinFlip']);
