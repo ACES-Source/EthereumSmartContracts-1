@@ -45,7 +45,7 @@
             else{
                 window.setTimeout(function(){
                     waitForReceipt(txHash, cb);
-                } 5000);
+                }, 5000);
             }
         });
     }
