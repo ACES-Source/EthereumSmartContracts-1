@@ -11,12 +11,12 @@ contract Crowdsale {
     address public beneficiary;
     uint public fundingGoal;
     uint public totalAmountRaised;
-    uint public CrowdsaleDeadline;
+    uint public crowdSaleDeadline;
     uint public tokenPrice;
     WadsToken public token;
-    mapping(address = > uint) public balanceOf;
+    mapping(address => uint) public balanceOf;
     bool fundingGoalReached = false;
-    bool crowdsaleClosed = false;
+    bool crowdSaleClosed = false;
 
     /**
      * Constructor
@@ -58,7 +58,7 @@ contract Crowdsale {
      */
     function () payable {
         // make sure the crowdsale is not closed
-        require(!crowdsaleClosed);
+        require(!crowdSaleClosed);
 
         // add to the total raised
         uint amount = msg.value;
