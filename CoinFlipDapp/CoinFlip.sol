@@ -27,8 +27,16 @@ contract CoinFlip {
         uint bet = msg.value;
 
         if(time % 2 == 0){
+        	// this won't work unless we have some eth in the contract
             msg.sender.transfer(bet*2);
         }
     }
+
+
+    // allow deposits of eth to the contract
+    function deposit() payable public {
+
+    }
+
 
 }

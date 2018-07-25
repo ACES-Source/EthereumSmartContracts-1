@@ -1,9 +1,9 @@
 (function (Contract) {
-    // web 3.0 will be overwritten so we need to create
+    // web 3.0 will be overwritten by metamask so we need to create
     // a new web3 instance that won't be overwritten
     var web3_instance;
     var instance;
-    // then create an accounts array
+    // then create an accounts array which will be populated later
     var accounts;
 
     function init(cb) {
@@ -14,7 +14,7 @@
         // now we can load the accounts from metamask
         accounts = web3.eth.accounts;
 
-        // update all web3 calls to use the web3_instance
+        // update all web3 calls to use the web3_instance that we stored previously
         var contract_interface = web3_instance.eth.contract(Contract.abi);
         instance = contract_interface.at(Contract.address);
         cb();
@@ -67,7 +67,7 @@
         Json - from, gas limit(wei), value(wei)
         */
                             // here we select the first account in metamask
-        instance.flip.sendTransaction({from: "web3_instance.eth.accounts[0]",
+        instance.flip.sendTransaction({from: accounts[0],
                                       gas: 100000,
                                       value: val}, function(error, txHash){
             if(error){
