@@ -78,7 +78,9 @@ contract Crowdsale {
      * Modifier used to check if deadline for crowdsale has passed
      */
     modifier afterDeadline() {
-
+        if(now >= crowdSaleDeadline){
+            _;
+        }
     }
 
     /**
@@ -86,7 +88,12 @@ contract Crowdsale {
      *
      */
     function checkGoalReached() afterDeadline {
-
+        if(totalAmountRaised >= fundingGoal){
+            fundingGoalReached = true;
+        }
+        // even if the goal wasn't reached
+        // we should close the sale
+        crowdSaleClosed = true;
     }
 
 
