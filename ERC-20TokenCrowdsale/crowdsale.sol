@@ -1,6 +1,7 @@
 pragma solidity ^0.4.16;
 
-interface YOURTOKENHERE {
+// this allows us to transfer tokens on the actual token contract
+interface WadsToken {
     function transfer(address receiver, uint amount);
 }
 
@@ -9,7 +10,7 @@ contract Crowdsale {
     // define all of the parts of the crowdsale contract
     address public beneficiary;
     uint public fundingGoal;
-    uint public amountRaised;
+    uint public totalAmountRaised;
     uint public CrowdsaleDeadline;
     uint public tokenPrice;
     WadsToken public token;
@@ -56,7 +57,21 @@ contract Crowdsale {
      * Default function which gets called when someone sends money to the contract. Will be used for joining sale.
      */
     function () payable {
+        // make sure the crowdsale is not closed
+        require(!crowdsaleClosed);
 
+        // add to the total raised
+        uint amount = msg.value;
+
+        // add more to their balance 
+        balanceOf[msg.sender] += amount;
+
+        // check the balance of the sender
+        totalAmountRaised += amount;
+        
+        // transfer tokens from the token contract to the user
+        // we use the interface to do this
+        token.transfer(msg.sender, amount);
     }
 
     /**
