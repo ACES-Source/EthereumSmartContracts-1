@@ -2,6 +2,7 @@
     // web 3.0 will be overwritten by metamask so we need to create
     // a new web3 instance that won't be overwritten
     var web3_instance;
+    // instance is the default contract
     var instance;
     // then create an accounts array which will be populated later
     var accounts;
@@ -58,6 +59,21 @@
         });
     }
 
+    // check if a user won or lost
+    // print it to the screen
+    function getResult(){
+        instance.getLastFlip(accounts[0], function(error, result){
+            if(result){
+                // user won
+                $('#result').html("You Won!");
+
+            }else{
+                // user lost
+                $('#result').html("You Lost!");
+            }
+        })
+    }
+
     function flip(){
         // get the bet from the input box
         let val = parseInt($('#bet').val());
@@ -79,7 +95,11 @@
                     // if the status is equal to 1 in hex since it's a hash
                     if(receipt.status === "0x1"){
                         // alert the receipt (will always be in JSON)
-                        alert(JSON.stringify(receipt));
+                        //alert(JSON.stringify(receipt));
+                        // check if the user lost / won
+                        getResult();
+                        // update the balance of the contract
+                        getBalance();
                     }
                     // otherwise print an error 
                     else {
