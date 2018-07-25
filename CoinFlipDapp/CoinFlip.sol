@@ -6,7 +6,7 @@ contract CoinFlip {
 
     // map the address (player) to a bool
     // this will be used to check if a user won or lost
-    mapping(addres => bool) lastFlip;
+    mapping(address => bool) lastFlip;
     
     // constructor
     // get the owner of the contract
