@@ -104,6 +104,31 @@ contract Crowdsale {
      * If you goal was not reached, everyone who participated can withdraw their share.
      */
     function safeWithdrawal() afterDeadline {
+        if(fundingGoalReached){
+            // get the balance of the user
+            uint amount = balanceOf[msg.sender];
+            // set their balance to 0 since we safely
+            // stored it in amount
+            balanceOf[msg.sender] = 0;
 
+            // check if they have a balance
+            if(amount > 0){
+                // if so send the amount, but if it fails
+                // restore the amount to the user
+                if(!msg.sender.send(amount)){
+                    balanceOf[msg.sender] = amount;
+                }
+            }
+        }
+        // if the goal is reached
+        // send the ether to the beneficiary
+        if(fundingGoalReached && msg.sender == beneficiary){
+            // if the transfer fails
+            if(!beneficiary.send(totalAmountRaised)){
+                // re-open the contract so the contributors
+                // can get their money back
+                fundingGoalReached = false;
+            }
+        }
     }
 }
