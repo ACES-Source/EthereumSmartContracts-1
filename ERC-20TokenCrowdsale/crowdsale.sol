@@ -33,6 +33,21 @@ contract Crowdsale {
         address addressOfToken
     ) {
 
+        // who gets the token?
+        beneficiary = ifSuccessfulSendTo;
+
+        // goal
+        fundingGoal = goalInEther;
+
+        // when will it end? from the time the contract
+        // is created until the time we specify in minutes
+        crowdSaleDeadline = now + durationInMinutes * 1 minutes;
+
+        // token price
+        tokenPrice = tokenPriceInEther * 1 ether;
+
+        // which token will this crowdsale interact with?
+        token = WadsToken("address");
     }
 
     /**
