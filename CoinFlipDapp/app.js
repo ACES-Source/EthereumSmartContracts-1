@@ -1,13 +1,21 @@
 (function (Contract) {
-    var web3;
+    // web 3.0 will be overwritten so we need to create
+    // a new web3 instance that won't be overwritten
+    var web3_instance;
     var instance;
+    // then create an accounts array
+    var accounts;
 
     function init(cb) {
-        web3 = new Web3(
+        web3_instance = new Web3(
             (window.web3 && window.web3.currentProvider) ||
             new Web3.providers.HttpProvider(Contract.endpoint));
 
-        var contract_interface = web3.eth.contract(Contract.abi);
+        // now we can load the accounts from metamask
+        accounts = web3.eth.accounts;
+
+        // update all web3 calls to use the web3_instance
+        var contract_interface = web3_instance.eth.contract(Contract.abi);
         instance = contract_interface.at(Contract.address);
         cb();
     }
@@ -31,7 +39,7 @@
     // added to the blockchain
     function waitForReceipt(txHash, cb){
         // web3 eth function
-        web3.eth.getTransactionReceipt(txHash, function(error, receipt){
+        web3_instance.eth.getTransactionReceipt(txHash, function(error, receipt){
             if(error){
                 alert(error);
             }
@@ -58,7 +66,8 @@
         sentTransaction
         Json - from, gas limit(wei), value(wei)
         */
-        instance.flip.sendTransaction({from: "0xa48f2e0be8ab5a04a5eb1f86ead1923f03a207fd",
+                            // here we select the first account in metamask
+        instance.flip.sendTransaction({from: "web3_instance.eth.accounts[0]",
                                       gas: 100000,
                                       value: val}, function(error, txHash){
             if(error){
