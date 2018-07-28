@@ -1,0 +1,9 @@
+WADSTokenContract: 0x579e980333592248cf49d51e9c3e5a457a0bc88c
+Crowdsale: 0xd04fed1e21038cf17bd86c74b4003331415acf3f
+
+1. Use metamask and remix to deploy the WADStoken
+2. Define all of the params to deploy the Crowdsale and link it to the WADStoken
+3. Send WADS tokens to the crowdsale contract
+4. When ether comes into the crowdsale contract they will receive wads back
+5. If the goal is not reached then the user can get their ether back
+6. All ether will be sent back to Metamask since that's the beneficiary address
