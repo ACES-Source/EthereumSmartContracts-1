@@ -20,11 +20,10 @@ contract Airdrop {
         token = WadsToken(addressOfToken);
         tokenHolder = addressOfHolder;
         amountToTransfer = fixedAmount;
-        
-
     }
 
     function drop() public {
-      
+    	// transfer the tokens from the holder to caller, some amount
+    	token.transferFrom(tokenHolder, msg.sender, amountToTransfer); 
     }
 }
