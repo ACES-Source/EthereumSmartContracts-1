@@ -1,0 +1,6 @@
+Airdrop Notes
+
+1. Create the token contract
+2. Create the Airdrop contract using the params for the token contract, the creator of the contract, and the amount to allow the contract to airdrop
+3. Call the airdrop contract from any eth address
+4. You should receive the tokens
