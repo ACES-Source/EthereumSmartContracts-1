@@ -117,8 +117,8 @@ contract WadsToken is ERC20Interface, Owned, SafeMath {
         name = "WADS Token";
         decimals = 18;
         _totalSupply = 100000000000000000000000000;
-        balances[0xB37a8f9DF9368320c13a3DB2dEe2dA5ce48276A2] = _totalSupply;
-        Transfer(address(0), 0xB37a8f9DF9368320c13a3DB2dEe2dA5ce48276A2, _totalSupply);
+        balances[msg.sender] = _totalSupply;
+        Transfer(address(0), msg.sender, _totalSupply);
     }
 
 
