@@ -1,5 +1,8 @@
 pragma solidity ^0.4.16;
 
+// this contract is not safe and will allow unlimited transfers!
+// do not use in production
+
 
 interface WadsToken {
     function transferFrom(address from, address to, uint tokens);
