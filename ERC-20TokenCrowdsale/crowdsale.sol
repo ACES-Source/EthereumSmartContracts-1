@@ -71,7 +71,8 @@ contract Crowdsale {
         
         // transfer tokens from the token contract to the user
         // we use the interface to do this
-        token.transfer(msg.sender, amount);
+        // set the token price by divinding the amount by the tokenPrice
+        token.transfer(msg.sender, amount/TokenPrice);
     }
 
     /**
