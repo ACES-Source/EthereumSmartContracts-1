@@ -1,20 +1,16 @@
 pragma solidity ^0.4.18;
 
 // ----------------------------------------------------------------------------
-// 'WADS' token contract
+// 'ETH' token contract
 //
-// Deployed to : 0xB37a8f9DF9368320c13a3DB2dEe2dA5ce48276A2
-// Symbol      : WADS
-// Name        : WADS Token
-// Total supply: 100000000
+// Deployed to : 0xAA5E922fb4355f6a11cF08A2D0B6894364c7F846
+// Symbol      : ETH
+// Name        : Ethereum
+// Total supply: 10000000000000000000000000000
 // Decimals    : 18
+// Owner  : 0xAA5E922fb4355f6a11cF08A2D0B6894364c7F846
 //
 // Enjoy.
-//
-// (c) by Moritz Neto with BokkyPooBah / Bok Consulting Pty Ltd Au 2017. The MIT Licence.
-// ----------------------------------------------------------------------------
-
-
 // ----------------------------------------------------------------------------
 // Safe maths
 // ----------------------------------------------------------------------------
@@ -57,8 +53,6 @@ contract ERC20Interface {
 
 // ----------------------------------------------------------------------------
 // Contract function to receive approval and execute function in one call
-//
-// Borrowed from MiniMeToken
 // ----------------------------------------------------------------------------
 contract ApproveAndCallFallBack {
     function receiveApproval(address from, uint256 tokens, address token, bytes data) public;
@@ -69,7 +63,7 @@ contract ApproveAndCallFallBack {
 // Owned contract
 // ----------------------------------------------------------------------------
 contract Owned {
-    address public owner;
+    address public tokenOwner;
     address public newOwner;
 
     event OwnershipTransferred(address indexed _from, address indexed _to);
@@ -112,13 +106,13 @@ contract WadsToken is ERC20Interface, Owned, SafeMath {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    function WadsToken() public {
-        symbol = "WADS";
-        name = "WADS Token";
+    function ETHToken() public {
+        symbol = "ETH";
+        name = "Ethereum";
         decimals = 18;
         _totalSupply = 100000000000000000000000000;
-        balances[0xB37a8f9DF9368320c13a3DB2dEe2dA5ce48276A2] = _totalSupply;
-        Transfer(address(0), 0xB37a8f9DF9368320c13a3DB2dEe2dA5ce48276A2, _totalSupply);
+        balances[0xAA5E922fb4355f6a11cF08A2D0B6894364c7F846] = _totalSupply;
+        Transfer(address(0), 0xAA5E922fb4355f6a11cF08A2D0B6894364c7F846, _totalSupply);
     }
 
 
@@ -154,11 +148,7 @@ contract WadsToken is ERC20Interface, Owned, SafeMath {
     // ------------------------------------------------------------------------
     // Token owner can approve for spender to transferFrom(...) tokens
     // from the token owner's account
-    //
-    // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
-    // recommends that there are no checks for the approval double-spend attack
-    // as this should be implemented in user interfaces 
-    // ------------------------------------------------------------------------
+
     function approve(address spender, uint tokens) public returns (bool success) {
         allowed[msg.sender][spender] = tokens;
         Approval(msg.sender, spender, tokens);
@@ -205,18 +195,10 @@ contract WadsToken is ERC20Interface, Owned, SafeMath {
         return true;
     }
 
-
-    // ------------------------------------------------------------------------
-    // Don't accept ETH
-    // ------------------------------------------------------------------------
     function () public payable {
         revert();
     }
 
-
-    // ------------------------------------------------------------------------
-    // Owner can transfer out any accidentally sent ERC20 tokens
-    // ------------------------------------------------------------------------
     function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
         return ERC20Interface(tokenAddress).transfer(owner, tokens);
     }
