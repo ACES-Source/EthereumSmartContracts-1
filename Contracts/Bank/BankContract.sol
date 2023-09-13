@@ -5,8 +5,6 @@ pragma solidity ^0.4.0;
 contract BankContract{
 
 	uint=balance;
-        uint=amount;
-        payable=address;
 
 	function deposit(amount) payable {
 		balance += msg.value;
